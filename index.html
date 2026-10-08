@@ -1,1 +1,37 @@
-<h1>IRODORI FIX AKTIF</h1>
+<!DOCTYPE html><html lang="id"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IRODORI FIX</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#0f172a;color:#e2e8f0;display:flex;flex-direction:column;min-height:100vh}
+header{padding:14px;background:#1e293b;display:flex;gap:10px}
+.bab-list{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:#1e293b}
+.b{padding:6px 10px;border-radius:20px;background:#334155;font-size:13px}
+.b.active{background:#f59e0b;color:#000;font-weight:bold}
+#viewer{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.card{width:100%;max-width:400px;height:260px;perspective:1000px}
+.inner{position:relative;width:100%;height:100%;transition:.6s;transform-style:preserve-3d}
+.card.flip.inner{transform:rotateY(180deg)}
+.face{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;font-size:22px;font-weight:bold}
+.front{background:#f8fafc;color:#0f172a}.back{background:#f59e0b;color:#000;transform:rotateY(180deg);flex-direction:column}
+.controls{margin-top:18px;display:flex;gap:10px}button{background:#334155;color:#fff;border:0;padding:8px 12px;border-radius:8px}
+</style></head><body>
+<header><h1>IRODORI FIX ⚡</h1><button onclick="shuffle()">🔀</button></header>
+<div class="bab-list" id="L"></div>
+<div id="viewer"><div class="card" id="C" onclick="this.classList.toggle('flip')"><div class="inner">
+<div class="face front" id="F">Loading...</div>
+<div class="face back"><div id="BT"></div><div id="BY" style="font-size:14px"></div></div>
+</div></div><div class="controls"><button onclick="pr()">⬅️</button><button onclick="ne()">➡️</button></div><div id="P"></div></div>
+<script>
+const D={
+"13":[["起きる","bangun tidur","おきる"],["寝る","tidur","ねる"],["働く","bekerja","はたらく"],["休む","istirahat","やすむ"],["勉強する","belajar","べんきょうする"],["終わる","selesai","おわる"],["洗う","mencuci","あらう"]],
+"14":[["行く","pergi","いく"],["来る","datang","くる"],["帰る","pulang","かえる"],["立つ","berdiri","たつ"],["座る","duduk","すわる"],["使う","memakai","つかう"],["作る","membuat","つくる"]],
+"15":[["入る","masuk","はいる"],["出る","keluar","でる"],["消す","mematikan","けす"],["つける","menyalakan","つける"],["開ける","membuka","あける"],["閉める","menutup","しめる"]],
+"16":[["持つ","membawa","もつ"],["出す","mengeluarkan","だす"],["入れる","memasukkan","いれる"],["捨てる","membuang","すてる"]]
+};
+let B=Object.keys(D)[0],L=[...D[B]],I=0;
+function RB(){let c=document.getElementById('L');c.innerHTML='';Object.keys(D).forEach(b=>{let d=document.createElement('div');d.className='b'+(b==B?' active':'');d.textContent='Bab '+b; d.onclick=()=>{B=b;L=[...D[b]];I=0;R();RB()};c.appendChild(d)})}
+function R(){let t=L[I];F.textContent=t[0];BT.textContent=t[1];BY.textContent=t[2];C.classList.remove('flip');P.textContent=(I+1)+'/'+L.length}
+function ne(){I=(I+1)%L.length;R()}function pr(){I=(I-1+L.length)%L.length;R()}
+function shuffle(){for(let i=L.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[L[i],L[j]]=[L[j],L[i]]}I=0;R()}
+RB();R();
+</script></body></html>
