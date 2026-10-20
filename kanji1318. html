@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kanji 13-18</title>
+<style>body{margin:0;background:#000;color:#fff;font-family:sans-serif;padding:14px}h1{color:#ffeb3b;text-align:center}a{color:#ffeb3b}.search{width:100%;padding:12px;border-radius:12px;border:1px solid #333;background:#111;color:#fff;margin-bottom:14px;box-sizing:border-box}.card{border:1px solid #333;border-radius:14px;padding:12px;background:#111;margin-bottom:8px}</style>
+</head>
+<body>
+<h1>Kanji BAB 13-18<br>60 kata</h1>
+<input id="q" class="search" placeholder="Cari kanji...">
+<div id="list"></div>
+<script>
+const FULL=[
+["市","し","kota","L13"],["借りる","かりる","meminjam","L13"],["料金","りょうきん","biaya","L13"],["返す","かえす","mengembalikan","L13"],["図書館","としょかん","perpustakaan","L13"],["開く","あく","terbuka","L13"],["道具","どうぐ","perkakas","L13"],["閉まる","しまる","tertutup","L13"],["～点","～てん","poin","L13"],["利用する","りようする","memanfaatkan","L13"],["必要","ひつよう","perlu","L13"],["外国","がいこく","luar negeri","L14"],["郵便局","ゆうびんきょく","kantor pos","L14"],["情報","じょうほう","informasi","L14"],["近所","きんじょ","sekitar","L14"],["相談","そうだん","konsultasi","L14"],["自動","じどう","otomatis","L14"],["質問","しつもん","pertanyaan","L14"],["洗う","あらう","mencuci","L14"],["窓口","まどぐち","loket","L14"],["入力する","にゅうりょくする","input data","L14"],["温度","おんど","suhu","L15"],["出す","だす","mengeluarkan","L15"],["危険","きけん","bahaya","L15"],["分ける","わける","membagi","L15"],["種類","しゅるい","jenis","L15"],["燃える","もえる","terbakar","L15"],["消す","けす","mematikan","L15"],["決める","きめる","memutuskan","L15"],["捨てる","すてる","membuang","L15"],["設定する","せっていする","mengatur","L15"],["地震","じしん","gempa","L16"],["大切","たいせつ","penting","L16"],["台風","たいふう","topan","L16"],["心配","しんぱい","khawatir","L16"],["外","そと","luar","L16"],["集まる","あつまる","berkumpul","L16"],["声","こえ","suara","L16"],["進む","すすむ","maju","L16"],["危ない","あぶない","berbahaya","L16"],["最近","さいきん","akhir-akhir ini","L17"],["違う","ちがう","berbeda","L17"],["授業","じゅぎょう","pelajaran","L17"],["慣れる","なれる","terbiasa","L17"],["問題","もんだい","masalah","L17"],["増える","ふえる","bertambah","L17"],["大変","たいへん","susah sekali","L17"],["笑う","わらう","tertawa","L17"],["困る","こまる","kesulitan","L17"],["苦労する","くろうする","bersusah payah","L17"],["希望","きぼう","harapan","L18"],["続ける","つづける","melanjutkan","L18"],["募集","ぼしゅう","lowongan","L18"],["考える","かんがえる","berpikir","L18"],["特に","とくに","khususnya","L18"],["役に立つ","やくにたつ","berguna","L18"],["住む","すむ","tinggal","L18"],["卒業する","そつぎょうする","lulus","L18"],["建てる","たてる","membangun","L18"],["留学する","りゅうがくする","studi luar negeri","L18"]
+];
+const list=document.getElementById('list'); const q=document.getElementById('q');
+function render(f){list.innerHTML=f.map(v=>`<div class="card"><b>${v[0]} - ${v[1]}</b><br>${v[2]} • ${v[3]}</div>`).join('');}
+render(FULL);
+q.addEventListener('input',e=>{const s=e.target.value.toLowerCase();render(FULL.filter(v=>v.join(' ').toLowerCase().includes(s)));});
+</script>
+<br><a href="index.html">← Kembali</a>
+</body>
+</html>
